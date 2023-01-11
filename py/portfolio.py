@@ -13,7 +13,7 @@ class Portfolio:
         return
 
     def evaluate(self, currency: str):
-        total = functools.reduce(operator.add, map(lambda money: money.amount, self.moneys), 0)
+        total = functools.reduce(operator.add, map(lambda money: self.__convert(money, currency), self.moneys), 0)
         return Money(total, currency)
 
     def __convert(self, aMoney, aCurrency):
