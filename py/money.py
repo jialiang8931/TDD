@@ -5,7 +5,6 @@ class Money:
     def __init__(self, amount: Union[int, float, Decimal], currency: str):
         self.amount = amount
         self.currency = currency
-        self._eur_to_usd = 1.2
         return
 
     def times(self, multiplier: Union[int, float]):
