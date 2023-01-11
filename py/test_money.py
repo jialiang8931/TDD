@@ -4,25 +4,17 @@ from decimal import Decimal
 
 
 class TestMoney(unittest.TestCase):
-    def testMultiplication(self, ):
-        fiver = Dollar(5)
+    def testMultiplicationInDollars(self, ):
+        fiver = Money(5, "USD")
         tenner = fiver.times(2)
         self.assertEqual(10, tenner.amount)
+        self.assertEqual("USD", tenner.currency)
 
     def testMultiplicationInEuros(self, ):
         tenEuros = Money(10, "EUR")
         twentyEuros = tenEuros.times(2)
         self.assertEqual(20, twentyEuros.amount)
         self.assertEqual("EUR", tenEuros.currency)
-
-class Dollar:
-    def __init__(self, amount):
-        self.amount = amount
-        return
-
-    def times(self, multiplier):
-        return Dollar(self.amount * multiplier)
-
 class Money:
     def __init__(self, amount: Union[int, float, Decimal], currency: str):
         self.amount = amount
