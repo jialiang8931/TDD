@@ -6,3 +6,5 @@
 - git pull origin master --allow-unrelated-histories
 - git push --set-upstream origin master
 - git push 
+- [choco install act-cli](https://github.com/nektos/act)
+ - act (@root)

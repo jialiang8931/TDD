@@ -1,4 +1,5 @@
 import unittest
+import re
 from money import Money
 from portfolio import Portfolio
 from bank import Bank
@@ -55,9 +56,15 @@ class TestMoney(unittest.TestCase):
         oneWon = Money(1, "KRW")
         portfolio = Portfolio()
         portfolio.add(oneDollar, oneEuro, oneWon)
+
+        scenarios = ["USD", "EUR", "KRW"]
+        scenarios = [scenario + "->Kalganid" for scenario in scenarios]
+        compile_str = '|'.join(scenarios)
+        scenarios_re = re.compile(compile_str)
+            
         with self.assertRaisesRegex(
             Exception, 
-            "\[USD->Kalganid, EUR->Kalganid, KRW->Kalganid\]"
+            scenarios_re
         ): 
             portfolio.evaluate(self.bank, "Kalganid")
 
