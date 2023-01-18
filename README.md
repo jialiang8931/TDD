@@ -8,3 +8,6 @@
 - git push 
 - [choco install act-cli](https://github.com/nektos/act)
  - act (@root)
+
+ - docker build -t tdd .
+ - docker container run -it --rm --name tdd tdd
