@@ -83,5 +83,11 @@ class TestMoney(unittest.TestCase):
         with self.assertRaisesRegex(Exception, "EUR->Kalganid"):
             bank.convert(tenEuros, "Kalganid")
 
+    def testAddTwoSameMoneyWithSameCurrency(self, ):
+        money1 = Money(10, "USD")
+        money2 = Money(11, "USD")
+        self.assertEqual(Money(21, "USD"), money1 + money2)
+
+
 if __name__ == "__main__":
     unittest.main()

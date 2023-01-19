@@ -18,3 +18,12 @@ class Money:
 
     def __str__(self) -> str:
         return f"""{ self.currency }: { self.amount }"""
+
+    def __add__(self, other):
+        if not isinstance(other, Money):
+            return None
+
+        if (other is not None) and (self.currency == other.currency):
+            return Money(self.amount + other.amount, self.currency)
+        else:
+            return None 
